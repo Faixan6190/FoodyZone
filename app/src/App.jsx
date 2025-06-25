@@ -92,7 +92,11 @@ function App() {
         </TopContainer>
         <FilterContainer>
           {filterBtns.map((value) => (
-            <Button key={value.name} onClick={() => filterFood(value.type)}>
+            <Button
+              isSelected={selectedBtn === value.type}
+              key={value.name}
+              onClick={() => filterFood(value.type)}
+            >
               {value.name}
             </Button>
           ))}
@@ -111,7 +115,7 @@ export const Container = styled.div`
 `;
 
 const TopContainer = styled.section`
-  min-height: 140px;
+  height: 140px;
   display: flex;
   justify-content: space-between;
   padding: 16px;
@@ -126,7 +130,15 @@ const TopContainer = styled.section`
       height: 40px;
       font-size: 16px;
       padding: 0 10px;
+      &::placeholder {
+        color: white;
+      }
     }
+  }
+
+  @media (0 < width <600px) {
+    flex-direction: column;
+    height: 120px;
   }
 `;
 
@@ -138,7 +150,8 @@ const FilterContainer = styled.section`
 `;
 
 export const Button = styled.button`
-  background-color: #ff4343;
+  background: ${({ isSelected }) => (isSelected ? "#f22f2f" : "#ff4343")};
+  outline: 1px solid ${({ isSelected }) => (isSelected ? "white" : "#ff4343")};
   border-radius: 5px;
   padding: 6px 12px;
   border: none;
