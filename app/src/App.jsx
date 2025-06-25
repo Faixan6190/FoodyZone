@@ -3,7 +3,8 @@ import "./App.css";
 import styled from "styled-components";
 import SearchResult from "./components/SearchResult/SearchResult";
 
-export const BASE_URL = "http://localhost:9000";
+export const BASE_URL =
+  "https://vercel.com/faixan6190s-projects/foody-zone/EwVcoCVvPuay381HLPoszZCt46ZN";
 
 function App() {
   const [data, setData] = useState(null);
